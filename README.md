@@ -13,4 +13,5 @@ Implementation of JWT Authentication in Angular SPA + ASP.NET Core web API
 
 ## References
 
-- [API Security Checklist](https://github.com/shieldfy/API-Security-Checklist)
+- [shieldfy/API-Security-Checklist](https://github.com/shieldfy/API-Security-Checklist)
+- [dotnet-labs/JwtAuthDemo](https://github.com/dotnet-labs/JwtAuthDemo)
