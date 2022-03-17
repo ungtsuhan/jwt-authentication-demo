@@ -28,7 +28,7 @@ namespace webapi.Infrastructure
                 issuer: _jwtTokenConfig.Issuer,
                 audience: _jwtTokenConfig.Audience,
                 claims: claims,
-                expires: now.AddSeconds(_jwtTokenConfig.AccessTokenExpiration),
+                expires: now.AddMinutes(_jwtTokenConfig.AccessTokenExpiration),
                 signingCredentials: new SigningCredentials(new SymmetricSecurityKey(_secret), SecurityAlgorithms.HmacSha256Signature)
             );
 
