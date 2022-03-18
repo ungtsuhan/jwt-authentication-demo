@@ -30,7 +30,11 @@ export class LoginComponent implements OnInit {
       if(!environment.production) {
         console.log(res);
       }
-      this.router.navigate([returnUrl]);
+      if(returnUrl == '/login'){
+        this.router.navigate(['/']);
+      } else{
+        this.router.navigate([returnUrl]);
+      }
     });
   }
 
