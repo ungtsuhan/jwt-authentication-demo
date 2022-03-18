@@ -22,10 +22,11 @@ export class AuthService {
 
   autoLogin() {
     const currentUser: ApplicationUser = JSON.parse(localStorage.getItem('current_user') || '{}');
-
-    if(!currentUser) {
+    if(JSON.stringify(currentUser) === '{}'){
+      this._user.next(null);
       return;
     }
+    
     this._user.next(currentUser);
   }
 
