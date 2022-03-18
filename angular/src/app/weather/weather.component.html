@@ -1,1 +1,32 @@
-<button type="button" (click)="getWeather()"> Get Weather Forecast </button>
+<section class="container mt-4">
+    <button type="button" (click)="getWeather()" class="btn btn-primary btn-lg btn-block"> Get Weather Forecast </button>
+    <table class="table table-striped mt-4">
+        <thead>
+            <tr>
+            <th scope="col">date</th>
+            <th scope="col">temperatureC</th>
+            <th scope="col">temperatureF</th>
+            <th scope="col">summary</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let weather of weathersPaginated">
+            <td>{{ weather.date | date }}</td>
+            <td>{{ weather.temperatureC | number }}</td>
+            <td>{{ weather.temperatureF | number }}</td>
+            <td>{{ weather.summary }}</td>
+            </tr>
+        </tbody>
+    </table>
+      
+    <div class="d-flex justify-content-between p-2">
+        <ngb-pagination [collectionSize]="collectionSize" [(page)]="page" [pageSize]="pageSize" (pageChange)="refreshWeathers()">
+        </ngb-pagination>
+    
+        <select class="form-select" style="width: auto" [(ngModel)]="pageSize" (ngModelChange)="refreshWeathers()">
+            <option [ngValue]="2">2 items per page</option>
+            <option [ngValue]="4">4 items per page</option>
+            <option [ngValue]="6">6 items per page</option>
+        </select>
+    </div>
+</section>
