@@ -6,7 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: HomeComponent,canActivate: [AuthGuard] },
+{ path: '', pathMatch: 'full', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'login', component: LoginComponent },
   { path: 'weather', component: WeatherComponent, canActivate: [AuthGuard] },
 ];

@@ -9,7 +9,7 @@ import { AuthService } from './core/services/auth.service';
 export class AppComponent {
   title = 'angular';
 
-  constructor(private authService: AuthService) { }
+  constructor(public authService: AuthService) { }
   
   logout() {
     this.authService.logout();

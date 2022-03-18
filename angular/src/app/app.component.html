@@ -12,6 +12,7 @@
             <button class="btn btn-outline-warning"
                 type="button" 
                 (click)="logout()"
+                *ngIf="authService.user$ | async as user"
             >Logout</button>
         </div>
     </nav>

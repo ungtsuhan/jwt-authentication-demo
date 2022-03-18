@@ -1,4 +1,14 @@
-<div>
-    <h3>Your access token is</h3> 
-    <div style="word-wrap: break-word">{{ accessToken }}</div>
-</div>
+<section class="container">
+    <div 
+        class="card mt-4 shadow" 
+        *ngIf="authService.user$ | async as user"
+    >
+        <h4 class="card-header">Hi {{user.username}}</h4>
+        <div class="card-body">
+            <div class="m-2">
+                <h6>Your access token is</h6>
+                {{ accessToken }}
+              </div>
+        </div>
+    </div>
+</section>
