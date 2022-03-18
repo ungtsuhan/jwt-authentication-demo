@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { environment } from 'src/environments/environment';
 import { AuthService } from '../core/services/auth.service';
 
 @Component({
@@ -22,7 +23,9 @@ export class LoginComponent implements OnInit {
     }
 
     this.authService.login(this.username, this.password).subscribe(res => {
-      console.log(res);
+      if(!environment.production) {
+        console.log(res);
+      }
     });
   }
 
