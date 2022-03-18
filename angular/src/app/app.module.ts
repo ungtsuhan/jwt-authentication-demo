@@ -9,14 +9,14 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
-import { WeatherForecastComponent } from './weather-forecast/weather-forecast.component';
+import { WeatherComponent } from './weather/weather.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     HomeComponent,
-    WeatherForecastComponent
+    WeatherComponent
   ],
   imports: [
     BrowserModule,

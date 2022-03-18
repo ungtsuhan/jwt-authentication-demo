@@ -3,11 +3,11 @@ import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
 @Component({
-  selector: 'app-weather-forecast',
-  templateUrl: './weather-forecast.component.html',
-  styleUrls: ['./weather-forecast.component.scss']
+  selector: 'app-weather',
+  templateUrl: './weather.component.html',
+  styleUrls: ['./weather.component.scss']
 })
-export class WeatherForecastComponent implements OnInit {
+export class WeatherComponent implements OnInit {
 
   private readonly apiUrl = `${environment.apiUrl}WeatherForecast`;
 
@@ -23,5 +23,6 @@ export class WeatherForecastComponent implements OnInit {
       }
     });
   }
+
 
 }
