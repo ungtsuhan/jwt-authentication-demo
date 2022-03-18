@@ -11,6 +11,10 @@ export class AppComponent {
 
   constructor(public authService: AuthService) { }
   
+  ngOnInit(): void {
+    this.authService.autoLogin();
+  }
+
   logout() {
     this.authService.logout();
   }

@@ -20,15 +20,23 @@ export class AuthService {
 
   constructor(private http: HttpClient, private router: Router) { }
 
+  autoLogin() {
+    const currentUser: ApplicationUser = JSON.parse(localStorage.getItem('current_user') || '{}');
+
+    if(!currentUser) {
+      return;
+    }
+    this._user.next(currentUser);
+  }
+
   login(username: string, password: string) {
     return this.http
       .post<LoginResult>(`${this.apiUrl}/login`, { username, password })
       .pipe(
         map((res) => {
-          this._user.next({
-            username: res.username,
-          });
-          this.setLocalStorage(res);
+          const user = {username: res.username};
+          this._user.next(user);
+          this.setLocalStorage(res, user);
         })
       );
   }
@@ -39,12 +47,14 @@ export class AuthService {
     this.router.navigate(['login']);
   }
 
-  setLocalStorage(res: LoginResult) {
+  setLocalStorage(res: LoginResult, user: ApplicationUser) {
     localStorage.setItem('access_token', res.accessToken);
+    localStorage.setItem('current_user', JSON.stringify(user));
   }
 
   clearLocalStorage() {
     localStorage.removeItem('access_token');
+    localStorage.removeItem('current_user');
   }
 
 }
